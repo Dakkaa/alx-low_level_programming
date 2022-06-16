@@ -1,26 +1,52 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * _strcat - concatenates two strings,
- * @dest: destination.
- * @src: source.
- * Return: the pointer to dest.
+ * _strcat - concatenates two strings
+ *
+ * @dest: string to have content added from str
+ *
+ * @src: string to be read
+ *
+ * Return: pointer to dest
  */
+
 char *_strcat(char *dest, char *src)
 {
-	int count = 0, count2 = 0;
+	char *d;
+	char *s;
 
-	while (*(dest + count) != '\0')
+	d = dest;
+	s = src;
+/* increment dest address to null byte */
+	while (*dest)
 	{
-		count++;
+		dest++;
+	}
+/*
+ * tracer
+ *	printf("*dest=%c, dest=%p\n", *dest, dest);
+ */
+/* increment through src addresses, assigning content to end of dest */
+	while (*src)
+	{
+		*dest = *src;
+		src++;
+		dest++;
+/*
+ * tracers
+ *		printf("*src=%c, src=%p", *src, src);
+ *		printf("*dest=%c dest=%p\n", *dest, dest);
+ */
 	}
 
-	while (count2 >= 0)
-	{
-		*(dest + count) = *(src + count2);
-		if (*(src + count2) == '\0')
-			break;
-		count++;
-		count2++;
-	}
+/* append null byte to concatenated string manually */
+	dest++;
+	*dest = '\0';
+
+/* reset pointers for dest and src to their original starting values */
+	dest = d;
+	src = s;
+
 	return (dest);
 }
