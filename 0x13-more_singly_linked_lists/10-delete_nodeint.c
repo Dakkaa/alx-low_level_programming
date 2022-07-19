@@ -44,10 +44,3 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	}
 
 	return (1);
-}
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-S
